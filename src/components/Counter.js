@@ -7,8 +7,8 @@ import Button from "react-bootstrap/Button";
 import classes from "./Counter.module.css";
 
 const Counter = () => {
-  const counterVal = useSelector((state) => state.cter);
-  const toggleBool = useSelector((state) => state.toggle);
+  const counterVal = useSelector((state) => state.ctReducer.cter);
+  const toggleBool = useSelector((state) => state.ctReducer.toggle);
   const DispatchCt = useDispatch();
 
   const incrementHandler = () => {

@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
+import { ctincrease, ctdecrease, ctoggle } from "../store";
+
 import Button from "react-bootstrap/Button";
 
 import classes from "./Counter.module.css";
@@ -10,19 +12,19 @@ const Counter = () => {
   const DispatchCt = useDispatch();
 
   const incrementHandler = () => {
-    DispatchCt({ type: "increase" });
+    DispatchCt(ctincrease());
   };
 
   const increaseHandler = () => {
-    DispatchCt({ type: "increase", amount: 5 });
+    DispatchCt(ctincrease(5));
   };
 
   const decrementHandler = () => {
-    DispatchCt({ type: "decrease" });
+    DispatchCt(ctdecrease());
   };
 
   const toggleCounterHandler = () => {
-    DispatchCt({ type: "toggle" });
+    DispatchCt(ctoggle());
   };
 
   return (

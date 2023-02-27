@@ -1,23 +1,26 @@
-import { createStore } from "redux";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const ctReduxReducer = (state = { cter: 0, toggle: true }, action) => {
-  if (action.type === "increase") {
-    return {
-      cter: state.cter + (isNaN(action.amount) ? 1 : action.amount),
-      toggle: state.toggle,
-    };
-  } else if (action.type === "decrease") {
-    return {
-      cter: state.cter - (isNaN(action.amount) ? 1 : action.amount),
-      toggle: state.toggle,
-    };
-  } else if (action.type === "toggle") {
-    return { toggle: !state.toggle, cter: state.cter };
-  } else {
-    return state;
-  }
-};
+const ctSlice = createSlice({
+  name: "ctrdxtk",
+  initialState: { cter: 0, toggle: true },
+  reducers: {
+    increase(state, action) {
+      state.cter = state.cter + (isNaN(action.payload) ? 1 : action.payload);
+    },
+    decrease(state, action) {
+      state.cter = state.cter + (isNaN(action.payload) ? -1 : action.payload);
+    },
+    toggle(state) {
+      state.toggle = !state.toggle;
+    },
+  },
+});
 
-const ctStore = createStore(ctReduxReducer);
+export const {
+  increase: ctincrease,
+  decrease: ctdecrease,
+  toggle: ctoggle,
+} = ctSlice.actions;
 
-export default ctStore;
+const store = configureStore({ reducer: ctSlice.reducer });
+export default store;

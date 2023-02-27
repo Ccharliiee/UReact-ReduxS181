@@ -9,11 +9,15 @@ const Counter = () => {
   const DispatchCt = useDispatch();
 
   const incrementHandler = () => {
-    DispatchCt({ type: "increment" });
+    DispatchCt({ type: "increase" });
+  };
+
+  const increaseHandler = () => {
+    DispatchCt({ type: "increase", amount: 5 });
   };
 
   const decrementHandler = () => {
-    DispatchCt({ type: "decrement" });
+    DispatchCt({ type: "decrease" });
   };
 
   const toggleCounterHandler = () => {};
@@ -25,6 +29,9 @@ const Counter = () => {
       <div className="mb-4">
         <Button onClick={incrementHandler} variant="success" size="lg">
           increment
+        </Button>{" "}
+        <Button onClick={increaseHandler} variant="success" size="lg">
+          +5
         </Button>{" "}
         <Button onClick={decrementHandler} variant="danger" size="lg">
           decrement

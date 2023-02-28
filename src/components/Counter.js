@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { ctincrease, ctdecrease, ctoggle } from "../store";
+import { ctincrease, ctdecrease, ctoggle } from "../store/counterStore";
 
 import Button from "react-bootstrap/Button";
 
